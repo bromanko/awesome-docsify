@@ -1,0 +1,5 @@
+
+# Local inventory-review outputs and installed checker dependencies
+.um/freshness/work/
+.um/freshness/checks/node_modules/
+__pycache__/
