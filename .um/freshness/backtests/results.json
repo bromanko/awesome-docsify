@@ -1,0 +1,273 @@
+{
+  "evaluation": "Retrospective frozen-catalog replay with current public source research",
+  "catalogSha": "4188a1315701cbfa3d32c5cbe00ca93a04398738",
+  "historicalFreshness": "Frozen local snapshot only; not a current-upstream PR authorization",
+  "receipt": {
+    "case": "inlets-with-controls",
+    "exitStatus": 0,
+    "elapsedSeconds": 101.61,
+    "recordedCostUsd": 0.7333336,
+    "costCaveat": "Provider-reported estimate; missing receipts are not zero."
+  },
+  "assessment": {
+    "results": [
+      {
+        "id": "55",
+        "action": "keep",
+        "reason": "The deployed class-change.js site still runs on Docsify. Its HTML loads docsify@4, docsify plugins and the docsify-themeable theme. The listed description closely matches the official GitHub repository description, and the URL is the official homepage. It still fits Showcase.",
+        "evidence": [
+          {
+            "url": "https://jhildenbiddle.github.io/class-change/",
+            "observation": "Returns HTTP 200 with no redirect. The HTML loads https://cdn.jsdelivr.net/npm/docsify@4, docsify@4/lib/plugins/search.js, docsify-copy-code@2, docsify-pagination@2, docsify-plugin-ethicalads@1 and docsify-themeable@0 (theme-simple.css)."
+          },
+          {
+            "url": "https://api.github.com/repos/jhildenbiddle/class-change",
+            "observation": "The canonical repository is jhildenbiddle/class-change and is not archived. Its homepage is https://jhildenbiddle.github.io/class-change. Its description is 'A micro-library for manipulating CSS class names, triggering change events using HTML data attributes, and creating declarative class-related event listeners', which matches the catalog wording."
+          },
+          {
+            "url": "https://raw.githubusercontent.com/jhildenbiddle/class-change/master/README.md",
+            "observation": "The README links the documentation to https://jhildenbiddle.github.io/class-change and describes the library as an Element.classList alternative for manipulating class names, triggering class change events via data attributes, and declarative class-related listeners. This is consistent with the listing."
+          }
+        ],
+        "limitations": [
+          "The package.json description uses slightly different wording ('A versatile Element.classList alternative...'). The catalog wording still matches the repo description, so no change is needed."
+        ],
+        "newUrl": null,
+        "newDescription": null,
+        "blockers": [],
+        "newName": null
+      },
+      {
+        "id": "95",
+        "action": "remove",
+        "reason": "docs.inlets.dev no longer uses Docsify. The deployed HTML declares a MkDocs / MkDocs Material generator. The official source repository linked from the site, inlets/docs.inlets.dev, is not archived and is still active (last push in Oct 2026). It contains mkdocs.yml with theme 'material' and no Docsify setup. The listing's own description says the docs are 'deployed with docsify', and that is now false. A Showcase entry must actually use Docsify, so the official source gives affirmative evidence that it no longer fits.",
+        "evidence": [
+          {
+            "url": "https://docs.inlets.dev",
+            "observation": "Returns HTTP 200 at https://docs.inlets.dev/. The HTML has <meta name=\"generator\" content=\"mkdocs-1.5.3, mkdocs-material-9.5.17\"> and loads assets/javascripts/bundle.*.min.js (MkDocs Material). No docsify script assets appear."
+          },
+          {
+            "url": "https://github.com/inlets/docs.inlets.dev",
+            "observation": "The site links this repository as its source. GitHub API: full_name inlets/docs.inlets.dev, description 'Inlets documentation', not archived, pushed_at 2026-10-07. The top-level files are mkdocs.yml, requirements.txt and docs/. There is no Docsify index.html."
+          },
+          {
+            "url": "https://raw.githubusercontent.com/inlets/docs.inlets.dev/master/mkdocs.yml",
+            "observation": "The config has site_name: Inlets, site_url: https://docs.inlets.dev/, theme: name: material. This confirms the official build uses MkDocs Material, not Docsify."
+          }
+        ],
+        "limitations": [
+          "I did not check whether another inlets property still uses Docsify. That would be a separate, new listing rather than a correction of this one.",
+          "The project itself (inlets) is active. Removal is only about fitting the Docsify Showcase, not about the project's health."
+        ],
+        "newUrl": null,
+        "newDescription": null,
+        "blockers": [],
+        "newName": null
+      },
+      {
+        "id": "282",
+        "action": "update",
+        "reason": "docsify-themeable is still a Docsify theme system, and its official site is built with Docsify and the theme itself, so it belongs in Themes. However, the listed 'legacy browser support (IE10+)' is out of date. The official package.json, the GitHub repository description and the README all say 'legacy browser support (IE11+)'. Only that browser claim needs correcting. The URL, name and author credit stay as they are.",
+        "evidence": [
+          {
+            "url": "https://jhildenbiddle.github.io/docsify-themeable",
+            "observation": "Returns HTTP 200. The HTML loads docsify@4/lib/docsify.min.js and docsify-themeable@0/dist/js/docsify-themeable.min.js along with theme-simple CSS."
+          },
+          {
+            "url": "https://raw.githubusercontent.com/jhildenbiddle/docsify-themeable/master/package.json",
+            "observation": "name docsify-themeable, version 0.9.0. Its description is 'A delightfully simple theme system for docsify.js. Features multiple themes with rich customization options, an improved desktop and mobile experience, and legacy browser support (IE11+).' Keywords include docsify and theme."
+          },
+          {
+            "url": "https://raw.githubusercontent.com/jhildenbiddle/docsify-themeable/master/README.md",
+            "observation": "The README says 'legacy browser support (IE11+)' and lists the feature 'Legacy browser support (IE11+)', provided through css-vars-ponyfill."
+          },
+          {
+            "url": "https://api.github.com/repos/jhildenbiddle/docsify-themeable",
+            "observation": "The canonical repository is jhildenbiddle/docsify-themeable and is not archived. Its homepage is https://jhildenbiddle.github.io/docsify-themeable. Its description also says IE11+."
+          }
+        ],
+        "limitations": [
+          "I did not test the theme in IE11 or in current browsers.",
+          "The deployed site loads docsify@4. I did not check compatibility with any future Docsify major version."
+        ],
+        "newUrl": null,
+        "newDescription": "A delightfully simple theme system for docsify.js. Features multiple themes with rich customization options, an improved desktop and mobile experience, and legacy browser support (IE11+) ([@jhildenbiddle][1]).",
+        "blockers": [],
+        "newName": null
+      }
+    ]
+  },
+  "historyReview": {
+    "reviews": [
+      {
+        "id": "95",
+        "status": "related",
+        "reason": "Both queries ('inlets' and 'https://docs.inlets.dev') returned two closed records. Neither proposes removing the entry or discusses the docs site moving away from Docsify. Issue #119 is alexellis asking about an adopters list. In it, alexellis says docs.inlets.dev uses Docsify ('I like it mainly because it uses Markdown'), and a contributor suggests it belongs in Showcase. PR #120, merged 2020-09-03 and approved by jthegedus, added the exact line now in the catalog, including the claim 'is deployed with docsify'. These records are useful history: they show the entry was added in 2020 because the site used Docsify then. That supports the proposal's view that the description was accurate when written and is now stale. There is no open PR proposing the same removal, no maintainer objection to removing it, and no merged PR that already removed it.",
+        "references": [
+          "https://github.com/docsifyjs/awesome-docsify/pull/120",
+          "https://github.com/docsifyjs/awesome-docsify/issues/119",
+          "https://github.com/docsifyjs/awesome-docsify/issues/119#issuecomment-683392773",
+          "https://github.com/docsifyjs/awesome-docsify/issues/119#issuecomment-683392726"
+        ]
+      },
+      {
+        "id": "282",
+        "status": "related",
+        "reason": "The search used 'docsify-themeable' and its homepage URL and returned three merged PRs. None of them makes or rejects the IE10+ to IE11+ correction. PR #7, by the author jhildenbiddle and merged 2018-06-07, added the entry with 'full legacy support (IE10+)'. PR #9, also by the author and merged 2018-06-12, changed that wording to 'legacy browser support (IE10+)' and kept IE10+. That was accurate for upstream at the time. These records explain where the current text came from, but neither one changed the browser version. PR #93 (Restish showcase) only mentions docsify-themeable as a styling dependency and has nothing to do with this entry. There is no open competing PR, no maintainer rejection, and no merged PR that already changed the text to IE11+.",
+        "references": [
+          "https://github.com/docsifyjs/awesome-docsify/pull/7",
+          "https://github.com/docsifyjs/awesome-docsify/pull/9"
+        ]
+      }
+    ]
+  },
+  "proposalReadiness": {
+    "entry-282.checks": {
+      "ready": false,
+      "note": "related: The search used 'docsify-themeable' and its homepage URL and returned three merged PRs. None of them makes or rejects the IE10+ to IE11+ correction. PR #7, by the author jhildenbiddle and merged 2018-06-07, added the entry with 'full legacy support (IE10+)'. PR #9, also by the author and merged 2018-06-12, changed that wording to 'legacy browser support (IE10+)' and kept IE10+. That was accurate for upstream at the time. These records explain where the current text came from, but neither one changed the browser version. PR #93 (Restish showcase) only mentions docsify-themeable as a styling dependency and has nothing to do with this entry. There is no open competing PR, no maintainer rejection, and no merged PR that already changed the text to IE11+.",
+      "validation": {
+        "baseline": {
+          "links": 2,
+          "lint": 1
+        },
+        "links": {
+          "affected": [],
+          "introduced": [],
+          "passed": true,
+          "preexisting": [
+            "http://corhyam.xyz/",
+            "http://doc.open-uc.cn/",
+            "http://docs.laravel-quickstart.co/",
+            "http://dream0x01.com/spear-framework/",
+            "http://fastdlabs.com/#/",
+            "http://note.taqini.space/",
+            "http://phaser.io/",
+            "http://www.guofei.site/reading/#/",
+            "http://www.zuoziti.com/",
+            "https://abpanic.github.io/Mastering-JavaScript/#/",
+            "https://actions.taio.app/#/",
+            "https://advanced-react-cli.netlify.com/",
+            "https://amzn.github.io/style-dictionary/#/",
+            "https://bitcoinmythbusters.org/",
+            "https://boopathikumar.me/",
+            "https://bradleycwojcik.github.io/euchre-cli/",
+            "https://case.app/",
+            "https://dev.taio.app/#/",
+            "https://docs.case.app/",
+            "https://docs.gitpitch.com/",
+            "https://docs.hathora.dev/",
+            "https://docs.taio.app/#/",
+            "https://docsify-darklight-theme.boopathikumar.me/",
+            "https://fairlay.com/api/#/",
+            "https://fastdocs.io/",
+            "https://fmartinou.github.io/whats-up-docker/",
+            "https://gallery.pyecharts.org/",
+            "https://github.com/Brannua/docsify-pagination-keyboard-helper",
+            "https://github.com/mitchell-b-chelin/WPDocsify",
+            "https://github.com/pikapikapikaori/docsify-gitalk-with-footer",
+            "https://greybax.github.com/awesome-IT-films",
+            "https://hmpljs.github.io/",
+            "https://livere.com/",
+            "https://mouday.github.io/coding-tree/",
+            "https://posthtml.org/",
+            "https://pyecharts.org/",
+            "https://runkit.com/home",
+            "https://skuber.co/",
+            "https://super-detype.superkenil.com/#/",
+            "https://thirdwavecoffeebase.com/#/",
+            "https://veal98.gitee.io/cs-wiki/#/",
+            "https://wiki.airqo.net/",
+            "https://www.ethicalads.io/",
+            "https://www.explorewanchain.org/",
+            "https://yangchunjian.com/",
+            "https://yjava.cn/"
+          ],
+          "unverified": []
+        },
+        "passed": false,
+        "patched": {
+          "links": 2,
+          "lint": 1
+        },
+        "reason": "Proposed edit failed checks; held for maintainer review. See validation logs."
+      }
+    },
+    "entry-95.checks": {
+      "ready": false,
+      "note": "related: Both queries ('inlets' and 'https://docs.inlets.dev') returned two closed records. Neither proposes removing the entry or discusses the docs site moving away from Docsify. Issue #119 is alexellis asking about an adopters list. In it, alexellis says docs.inlets.dev uses Docsify ('I like it mainly because it uses Markdown'), and a contributor suggests it belongs in Showcase. PR #120, merged 2020-09-03 and approved by jthegedus, added the exact line now in the catalog, including the claim 'is deployed with docsify'. These records are useful history: they show the entry was added in 2020 because the site used Docsify then. That supports the proposal's view that the description was accurate when written and is now stale. There is no open PR proposing the same removal, no maintainer objection to removing it, and no merged PR that already removed it.",
+      "validation": {
+        "baseline": {
+          "links": 2,
+          "lint": 1
+        },
+        "links": {
+          "affected": [],
+          "introduced": [],
+          "passed": true,
+          "preexisting": [
+            "http://corhyam.xyz/",
+            "http://doc.open-uc.cn/",
+            "http://docs.laravel-quickstart.co/",
+            "http://dream0x01.com/spear-framework/",
+            "http://fastdlabs.com/#/",
+            "http://note.taqini.space/",
+            "http://phaser.io/",
+            "http://www.guofei.site/reading/#/",
+            "http://www.zuoziti.com/",
+            "https://abpanic.github.io/Mastering-JavaScript/#/",
+            "https://actions.taio.app/#/",
+            "https://advanced-react-cli.netlify.com/",
+            "https://amzn.github.io/style-dictionary/#/",
+            "https://bitcoinmythbusters.org/",
+            "https://boopathikumar.me/",
+            "https://bradleycwojcik.github.io/euchre-cli/",
+            "https://case.app/",
+            "https://dev.taio.app/#/",
+            "https://docs.case.app/",
+            "https://docs.gitpitch.com/",
+            "https://docs.hathora.dev/",
+            "https://docs.taio.app/#/",
+            "https://docsify-darklight-theme.boopathikumar.me/",
+            "https://fairlay.com/api/#/",
+            "https://fastdocs.io/",
+            "https://fmartinou.github.io/whats-up-docker/",
+            "https://github.com/Brannua/docsify-pagination-keyboard-helper",
+            "https://github.com/mitchell-b-chelin/WPDocsify",
+            "https://github.com/pikapikapikaori/docsify-gitalk-with-footer",
+            "https://greybax.github.com/awesome-IT-films",
+            "https://hmpljs.github.io/",
+            "https://livere.com/",
+            "https://mouday.github.io/coding-tree/",
+            "https://posthtml.org/",
+            "https://pyecharts.org/",
+            "https://runkit.com/home",
+            "https://skuber.co/",
+            "https://super-detype.superkenil.com/#/",
+            "https://thirdwavecoffeebase.com/#/",
+            "https://veal98.gitee.io/cs-wiki/#/",
+            "https://wiki.airqo.net/",
+            "https://www.ethicalads.io/",
+            "https://www.explorewanchain.org/",
+            "https://yangchunjian.com/",
+            "https://yjava.cn/"
+          ],
+          "unverified": []
+        },
+        "passed": false,
+        "patched": {
+          "links": 2,
+          "lint": 1
+        },
+        "reason": "Proposed edit failed checks; held for maintainer review. See validation logs."
+      }
+    }
+  },
+  "controlAudit": "class-change.js independently supported keep. docsify-themeable independently found IE11+ claim, contradicting initially expected keep; model update is supported. Original protocol retained.",
+  "outcomeExposureAudit": "Five direct-source research Bash calls inspected; no target #305/#306, catalog history, evaluator or sibling outputs detected. Prompt isolation only; absence of detected exposure is not proof of blindness.",
+  "postRunChange": "Allow parentheses in Markdown entry names. Final ci.previews produces identical proposals for the retained assessment; regression covers existing parenthesized label. Documentation/tests also updated after live run.",
+  "sourceProvenance": {
+    "repository": "bromanko/awesome-ratatui",
+    "commit": "91ec0be3aecb93d17b6f18e771ea86b52022f2de",
+    "source": ".um/freshness"
+  }
+}
